@@ -6,4 +6,7 @@ export default defineConfig({
   alias: {
     utils: resolve(__dirname, './src/utils'),
   },
+
+  fastRefresh: true,  // 设置为布尔值 true 或 false
 });
+
