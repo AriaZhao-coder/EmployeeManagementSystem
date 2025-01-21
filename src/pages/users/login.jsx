@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 import AccountLogin from './component/AccountLogin';
 import SmCodeLogin from './component/SmCodeLogin';
-import IconMap from '../../components/IconMap';
-import './css/login.css'
+import IconMap from 'components/IconMap';
+import './css/login.less'
 import logoImg from '../../assets/img/logo.jpg';
 
 
@@ -18,7 +18,7 @@ const LoginPage = () => {
     };
 
     // 根据登录方式渲染不同的组件
-    const ComponentSelector = props => type
+    const ComponentSelector = props => !type
         ? <AccountLogin {...props} />
         : <SmCodeLogin {...props} />;
 
@@ -26,19 +26,22 @@ const LoginPage = () => {
     return (
         <div className="form">
             <div className="logo">
-                <img src={ logoImg } alt="" />  {/* 替换为你的logo路径 */}
-                <span>织信人事管理系统</span>
+                <img src={ logoImg } alt="" />
+                <span>人事管理系统</span>
             </div>
             <Form form={form} onFinish={submitUserInfo}>
                 {/* 渲染动态组件 */}
                 {ComponentSelector({form, FromItem, Input})}
                 <Row>
+                    <Button block={true} type="primary">登录</Button>
+                </Row>
+                <Row className="ft-12">
                     <Col span={6}>
                         忘记密码？
                     </Col>
-                    <Col span={18}>
+                    <Col span={18} className="align-right" onClick={() => setType(!type? 1 : 0)}>
                         {
-                            type ? '使用手机号码进行登录' : '使用账户名进行登录'
+                            !type ? '使用手机号码进行登录' : '使用账户名进行登录'
                         }
                         {IconMap.arrRowRight}
                     </Col>
