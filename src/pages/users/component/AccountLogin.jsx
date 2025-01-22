@@ -26,7 +26,7 @@ function AccountLogin({Input,FromItem}) {
                     message: '密码不能为空!',
                 },
                 {
-                    max: 10, message: '密码长度不正确',
+                    max: 8, message: '密码长度不正确',
                 },
                 {
                     min: 4, message:'密码长度不正确',
