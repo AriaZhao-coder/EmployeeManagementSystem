@@ -1,11 +1,12 @@
 import React from 'react';
+import { Outlet } from 'umi';
 
-const  LoginLayout = ({children}) => {
+const LoginLayout = () => {
     return (
-        <>
-            {children}
-        </>
+        <div>
+            <Outlet />
+        </div>
     );
-}
+};
 
 export default LoginLayout;
