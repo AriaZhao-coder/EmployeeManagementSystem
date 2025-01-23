@@ -14,7 +14,6 @@ const FromItem = Form.Item;
 const LoginPage = () => {
     const [form] = Form.useForm();
     const [type, setType] = useState(0);  // 控制登录方式的状态
-    const [apiError, setApiError] = useState('');
     const navigate = useNavigate();
 
     // 提交表单数据
@@ -77,9 +76,6 @@ const LoginPage = () => {
             <Form
                 form={form}
                 onFinish={submitUserInfo}
-                validateMessages={{
-                validating: apiError
-                }}
             >
                 {/* 渲染动态组件 */}
                 {ComponentSelector({form, FromItem, Input})}

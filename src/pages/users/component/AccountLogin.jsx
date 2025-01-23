@@ -2,12 +2,11 @@ import React from 'react';
 import IconMap from "components/IconMap";
 import { message } from 'antd';
 
-function AccountLogin({Input, FromItem, apiError}) {
+function AccountLogin({Input, FromItem}) {
     return (
         <>
             <FromItem
                 name="username"
-                validateStatus={apiError ? "error" : undefined}
                 rules={[
                     {
                         required: true,
@@ -23,7 +22,6 @@ function AccountLogin({Input, FromItem, apiError}) {
             </FromItem>
             <FromItem
                 name="password"
-                validateStatus={apiError ? "error" : undefined}
                 rules={[
                     {
                         required: true,

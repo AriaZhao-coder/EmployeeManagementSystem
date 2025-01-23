@@ -3,7 +3,7 @@ import { Button, Input, Form } from 'antd';
 import IconMap from 'components/IconMap';
 import { sendCode} from "../../../api";
 
-const SmCodeLogin = ({ form, apiError }) => {
+const SmCodeLogin = ({ form}) => {
     const [disabled, setDisabled] = useState(true);
     const [buttonText, setButtonText] = useState('发送验证码');
     const [currentTime, setCurrentTime] = useState(60);
@@ -74,7 +74,6 @@ const SmCodeLogin = ({ form, apiError }) => {
         <>
             <Form.Item
                 name="mobile"
-                validateStatus={apiError ? "error" : undefined}
                 rules={[
                     {
                         validator: (rule, val) => {
@@ -96,7 +95,6 @@ const SmCodeLogin = ({ form, apiError }) => {
 
             <Form.Item
                 name="code"
-                validateStatus={apiError ? "error" : undefined}
                 rules={[
                     { required: true, message: '验证码不能为空' },
                     { max: 6, message: '验证码长度不正确' },

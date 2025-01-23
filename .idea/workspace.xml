@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9315acf2-0833-4553-b2bd-abd7e1056e36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/storage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashborad/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/users/component/AccountLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/users/component/AccountLogin.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/users/component/SmCodeLogin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/users/component/SmCodeLogin.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/users/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/users/login.jsx" afterDir="false" />
@@ -92,7 +85,7 @@
       <workItem from="1737336605961" duration="10243000" />
       <workItem from="1737363324455" duration="18327000" />
       <workItem from="1737444583465" duration="16650000" />
-      <workItem from="1737637246190" duration="9693000" />
+      <workItem from="1737637246190" duration="10553000" />
     </task>
     <servers />
   </component>
