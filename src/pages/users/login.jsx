@@ -82,8 +82,13 @@ const LoginPage = () => {
                 <Row>
                     <Button block={true} type="primary" htmlType="submit">登录</Button>
                 </Row>
+                <Row>
+                    <Button block onClick={() => navigate('/users/register')}>
+                        注册账号
+                    </Button>
+                </Row>
                 <Row className="ft-12">
-                    <Col span={6}>
+                    <Col span={6} onClick={() => navigate('/users/forgetPassword')}>
                         忘记密码？
                     </Col>
                     <Col span={18} className="align-right" onClick={() => setType(!type? 1 : 0)}>
