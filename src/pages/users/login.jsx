@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
+import { useLocation } from 'umi';
 import { useNavigate } from 'react-router-dom';
 import AccountLogin from './component/AccountLogin';
 import SmCodeLogin from './component/SmCodeLogin';
@@ -12,6 +13,7 @@ import { message } from 'antd';
 
 const FromItem = Form.Item;
 const LoginPage = () => {
+    const location = useLocation();
     const [form] = Form.useForm();
     const [type, setType] = useState(0);  // 控制登录方式的状态
     const navigate = useNavigate();
@@ -35,7 +37,8 @@ const LoginPage = () => {
                     user_name: res.data.username,
                     role: res.data.role,
                 });
-                navigate('/dashboard');
+                const from = location.state?.from || '/dashboard';
+                navigate(from);
             } else {
                 // 根据登录类型设置不同的错误提示字段
                 if (type === 0) {
