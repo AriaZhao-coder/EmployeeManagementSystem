@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Input, Form } from 'antd';
 import IconMap from 'components/IconMap';
+import { sendCode} from "../../../api";
 
-const SmCodeLogin = ({ form }) => {
+const SmCodeLogin = ({ form}) => {
     const [disabled, setDisabled] = useState(true);
     const [buttonText, setButtonText] = useState('发送验证码');
     const [currentTime, setCurrentTime] = useState(60);
@@ -11,34 +12,39 @@ const SmCodeLogin = ({ form }) => {
     // 发送验证码
     const _sendSmCode = async () => {
         if (disabled) return;
-        setDisabled(true);
+         try {
+             const mobile = form.getFieldValue('mobile');
+             const res = await sendCode({
+                 mobile,
+                 type: 2
+             });
 
-        if (timer) {
-            clearInterval(timer);
-        }
+             if (res.code === 200) {
+                 setDisabled(false);
+                 if (timer) clearInterval(timer);
 
-        // 立即更新显示
-        setCurrentTime(60);
-        setButtonText('60秒后重试');
+                 setCurrentTime(60);
+                 setButtonText('60秒重试');
 
-        // 启动倒计时
-        const newTimer = setInterval(() => {
-            setCurrentTime((prevTime) => {
-                const nextTime = prevTime - 1;
-                if (nextTime <= 0) {
-                    clearInterval(newTimer);
-                    setButtonText('发送验证码');
-                    setDisabled(false);
-                    return 60;
-                } else {
-                    // 在这里更新按钮文本，显示当前的倒计时数值
-                    setButtonText(`${nextTime}秒后重试`);
-                    return nextTime;
-                }
-            });
-        }, 1000);
-
-        setTimer(newTimer);
+                 const newTimer = setInterval(() => {
+                     setCurrentTime((prevTime) => {
+                         const nextTime = prevTime - 1;
+                         if (nextTime <= 0) {
+                             clearInterval(newTimer);
+                             setCurrentTime(60);
+                             setButtonText('发送验证码');
+                             setDisabled(false);
+                             return 60;
+                         }
+                         setButtonText(`${nextTime}秒后重试`)
+                         return nextTime;
+                     });
+                 }, 1000);
+                 setTimer(newTimer);
+             }
+         } catch (error) {
+             message.error(error.message || '发送验证码失败');
+         }
     };
 
     // 清理定时器
@@ -96,20 +102,19 @@ const SmCodeLogin = ({ form }) => {
                 ]}
                 hasFeedback
             >
-                <Input.Group compact>
+                <div style={{ display: 'flex' }}>
                     <Input
-                        style={{ width: 'calc(100% - 120px)' }}
                         placeholder="请输入验证码"
                         prefix={IconMap.codeIcon}
                     />
                     <Button
-                        style={{ width: '120px' }}
+                        style={{ width: '120px', marginLeft: '10px' }}
                         disabled={disabled}
                         onClick={_sendSmCode}
                     >
                         {buttonText}
                     </Button>
-                </Input.Group>
+                </div>
             </Form.Item>
         </>
     );

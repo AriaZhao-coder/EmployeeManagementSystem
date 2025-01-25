@@ -3,6 +3,7 @@ import { useLocation } from 'umi';
 import { selectLayout } from 'utils/selectLayout';
 import BaseLayout from './BaseLayout';
 import LoginLayout from './LoginLayout';
+import AuthRoute from '../components/AuthRoute';
 import { Outlet } from 'umi';  // 引入 Outlet
 
 const Layout = () => {
@@ -15,9 +16,12 @@ const Layout = () => {
     const Container = layoutMap[layoutName] || BaseLayout;
 
     return (
-        <Container>
-            <Outlet />
-        </Container>
+        <AuthRoute>
+            <Container>
+                <Outlet />
+            </Container>
+        </AuthRoute>
+
     );
 };
 
