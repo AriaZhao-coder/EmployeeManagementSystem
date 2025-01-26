@@ -33,7 +33,7 @@ function Register(props) {
                 mobile,
                 type: 1
             });
-            if (res.status === 200) {
+            if (res.code === 200) {
                 startCountDown();
             }
         } catch (error) {
@@ -62,6 +62,11 @@ function Register(props) {
         setTimer(newTimer);
     };
 
+    useEffect(() => {
+        return () => {
+            if (timer) clearInterval(timer);
+        };
+    }, [timer]);
 
     return (
         <div className='form'>
@@ -100,7 +105,7 @@ function Register(props) {
                 </Form.Item>
 
                 <Form.Item name="code" rules={[
-                    {require: true, message: '请输入验证码'},
+                    {required: true, message: '请输入验证码'},
                     {len: 6, massage: '验证码长度为6位'}
                 ]}>
                     <div style={{display : 'flex'}}>
