@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet, useNavigate } from 'umi';
+import { Outlet, useNavigate, useLocation} from 'umi';
 import IconMap from 'components/IconMap';
 import { getRouteList } from "../api";
 import { MenuFoldOutlined, MenuUnfoldOutlined, LogoutOutlined } from '@ant-design/icons';
@@ -10,11 +10,17 @@ const { Header, Sider, Content } = Layout;
 
 const BaseLayout = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [collapsed, setCollapsed] = useState(false);
     const [routeList, setRouteList] = useState([]);
     const token = localStorage.getItem('token');
     const { token: { colorBgContainer, borderRadiusLG } } = theme.useToken();
     useEffect(() => {
+        if (location.pathname === '/') {
+            navigate('/dashboard');
+            return;
+        }
+
         if (!token) {
             navigate('/users/login');
             return;
@@ -24,7 +30,20 @@ const BaseLayout = () => {
             try {
                 const res = await getRouteList();
                 if (res.code === 0) {
-                    setRouteList(res.data || []);
+                    const routes = res.data || [];
+                    setRouteList(routes);
+
+                    // 检查当前路径是否存在于路由列表中
+                    const isValidRoute = routes.some(route =>
+                        route.route === location.pathname ||
+                        location.pathname === '/users/login' ||
+                        location.pathname === '/dashboard'
+                    );
+
+                    // 如果路径不存在且不是特殊路径，重定向到404
+                    if (!isValidRoute) {
+                        navigate('/404');
+                    }
                 } else {
                     console.error('获取路由失败', res.msg);
                 }
@@ -48,8 +67,9 @@ const BaseLayout = () => {
         localStorage.removeItem('token');
         navigate('/users/login');
     };
+
     return (
-        <Layout style={{ minHeight: '100vh' }}>
+        <Layout style={{ minHeight: '100vh'}}>
             <Sider
                 trigger={null}
                 collapsible
@@ -66,20 +86,18 @@ const BaseLayout = () => {
                 <div className="logo" style={{
                     height: '64px',
                     margin: '16px',
-                    background: 'rgba(255, 255, 255, 0.2)',
+                    backgroundImage: `url(${logoImg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+
                 }}>
-                    <img
-                        src={ logoImg }
-                        alt=""
-                        style={{
-                            height: '32px',
-                            width: collapsed ? '32px' : 'auto',
-                            transition: 'width 0.2s'
-                        }}
-                    />
+                    {!collapsed && (
+                        <h1 className="text-white ml-2">人员管理</h1>
+                    )}
                 </div>
                 <Menu
                     theme="dark"

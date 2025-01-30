@@ -34,7 +34,7 @@ const LoginPage = () => {
                 storage.set('token', res.data.token);
                 storage.set('userInfo', {
                     user_id: res.data.user_id,
-                    user_name: res.data.username,
+                    user_name: res.data.user_name,
                     role: res.data.role,
                 });
                 const from = location.state?.from || '/dashboard';
