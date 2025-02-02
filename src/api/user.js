@@ -38,3 +38,10 @@ export const getUserInfo = () => {
         method: 'get'
     });
 };
+
+export const getRouteList = () => {
+    return request({
+        url: '/user/get_route_list',
+        method: 'get'
+    });
+};
