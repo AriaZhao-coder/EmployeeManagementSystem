@@ -1,5 +1,6 @@
 import React from 'react';
-const StaffAmount = ({ title, amount, styleData}) => {
+
+const StaffAmount = ({ title, amount, styleData }) => {
     return (
         <div className="staff-amount-container" style={{ ...styleData }}>
             <div className="staff-amount_title">{title}</div>
