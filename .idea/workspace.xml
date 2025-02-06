@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9315acf2-0833-4553-b2bd-abd7e1056e36" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/component/OldStaffTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/BaseLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/BaseLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/404Page/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/404/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/users/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/users/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.umirc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/component/StaffAmount.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/component/StaffAmount.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
