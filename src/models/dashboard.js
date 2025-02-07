@@ -55,7 +55,7 @@ export default function useDashboard() {
                 //学历情况
                 setPieList([
                     {title: '学历情况', renderList: educationList, styleData: { width: '49.8%', height: '350px' }},
-                    {title: '员工性别占比', renderList: genderList, styleData: { width: '49.8%', height: '350px' }}
+                    {title: '员工性别占比', renderList: genderList, styleData: { width: '49.8%', height: '350px' }, showSidebar: true, isEmpty: true},
                 ]);
 
                 //柱状图
@@ -65,16 +65,18 @@ export default function useDashboard() {
                 ])
                 //星座
                 setConstellationData({
-                    title: '员工星座分布', renderList: constellationList, styleData: { width: '49.8%', height: '350px' }
+                    title: '员工星座分布', renderList: constellationList, isArea: true
                 })
 
                 // 更新工龄最老的员工数据
                 setStaffData({
                     title: '工龄最老的十个员工',
+                    // styleData: { width: '49.8%', height: '350px'},
                     renderList: workingYearsMaps.map(item => ({
                         userName: item.userName,
                         department: item.department || '未分配'
                     }))
+
                 });
             } else {
                 console.error('获取数据失败:', response.msg);
