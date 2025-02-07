@@ -6,11 +6,11 @@ import OldStaffTable from "./component/OldStaffTable";
 import './css/dashboard.css';
 
 const Dashboard = () => {
-    const { loading, amountDataList, staffData, fetchDashboardData } = useModel('dashboard');
+    const { loading, amountDataList, staffData, pieList, columnList, constellationData, fetchDashboardData} = useModel('dashboard');
 
     useEffect(() => {
         fetchDashboardData();
-    }, []);
+    }, [fetchDashboardData]);
 
     return (
         <Spin spinning={loading} tip="Loading...">
