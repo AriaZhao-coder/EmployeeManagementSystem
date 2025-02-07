@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9315acf2-0833-4553-b2bd-abd7e1056e36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/component/Pie.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/component/column.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/dashboard/component/AgeColumn.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/dashboard/component/column.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/component/Column.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/dashboard/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/dashboard/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

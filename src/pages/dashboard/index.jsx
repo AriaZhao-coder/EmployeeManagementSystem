@@ -4,6 +4,8 @@ import { Spin } from 'antd';
 import StaffAmount from "./component/StaffAmount";
 import OldStaffTable from "./component/OldStaffTable";
 import Pie from "./component/Pie";
+import AgeColumn from "./component/AgeColumn";
+import Column from "./component/Column";
 import './css/dashboard.css';
 
 const Dashboard = () => {
@@ -31,6 +33,11 @@ const Dashboard = () => {
                         {...item}
                     />
                 ))}
+                {/* 年龄柱状体 */}
+                {pieList[1] && < AgeColumn {...pieList[1]} />}
+
+                {/*年龄柱状图*/}
+                {columnList.map((item, index) => <Column key={index} {...item} />)}
                 {/* 星座分布 */}
                 <Pie {...constellationData}/>
 
