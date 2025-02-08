@@ -1,6 +1,9 @@
 import { useState, useCallback } from 'react';
 import { analyzeStaff } from "../api";
 
+// 添加延迟函数
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 export default function useDashboard() {
     const [loading, setLoading] = useState(false);
     const [amountDataList, setAmountDataList] = useState([]);
@@ -13,8 +16,8 @@ export default function useDashboard() {
     const fetchDashboardData = useCallback(async () => {
         setLoading(true);
         try {
+            await delay(1000);
             const response = await analyzeStaff();
-
             if (response.code === 0) {
                 const {
                     total,
