@@ -2,15 +2,17 @@
   "private": true,
   "author": "EthanGuo-coder <ethanguo2003@163.com>",
   "scripts": {
-    "dev": "umi dev",
-    "build": "umi build",
-    "postinstall": "umi setup",
-    "setup": "umi setup",
+    "dev": "max dev",
+    "build": "max build",
+    "postinstall": "max setup",
+    "setup": "max setup",
     "start": "npm run dev"
   },
   "dependencies": {
+    "@umijs/max": "^4.4.4",
     "axios": "^1.7.9",
-    "umi": "^4.4.4"
+    "echarts": "^5.6.0",
+    "echarts-for-react": "^3.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.33",

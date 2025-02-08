@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet, useNavigate, useLocation} from 'umi';
+import { Outlet, useNavigate, useLocation } from 'umi';
+import {
+    MenuFoldOutlined,
+    MenuUnfoldOutlined,
+    LogoutOutlined
+} from '@ant-design/icons';
+import { Button, Layout, Menu, theme } from 'antd';  // 确保这里导入了 theme
 import IconMap from 'components/IconMap';
 import { getRouteList } from "../api";
-import { MenuFoldOutlined, MenuUnfoldOutlined, LogoutOutlined } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
 import logoImg from '../assets/img/logo.jpg';
 
 const { Header, Sider, Content } = Layout;
@@ -13,48 +17,50 @@ const BaseLayout = () => {
     const location = useLocation();
     const [collapsed, setCollapsed] = useState(false);
     const [routeList, setRouteList] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     const token = localStorage.getItem('token');
     const { token: { colorBgContainer, borderRadiusLG } } = theme.useToken();
+
     useEffect(() => {
-        if (location.pathname === '/') {
-            navigate('/dashboard');
-            return;
-        }
+        const init = async () => {
+            if (location.pathname === '/') {
+                navigate('/dashboard');
+                return;
+            }
 
-        if (!token) {
-            navigate('/users/login');
-            return;
-        }
+            if (!token) {
+                navigate('/users/login');
+                return;
+            }
 
-        const fetchRoutes = async () => {
             try {
+                setLoading(true);
                 const res = await getRouteList();
                 if (res.code === 0) {
                     const routes = res.data || [];
                     setRouteList(routes);
 
-                    // 检查当前路径是否存在于路由列表中
                     const isValidRoute = routes.some(route =>
                         route.route === location.pathname ||
                         location.pathname === '/users/login' ||
                         location.pathname === '/dashboard'
                     );
 
-                    // 如果路径不存在且不是特殊路径，重定向到404
                     if (!isValidRoute) {
                         navigate('/404');
                     }
-                } else {
-                    console.error('获取路由失败', res.msg);
                 }
             } catch (error) {
                 console.error('获取路由列表发生错误:', error);
                 navigate('/users/login');
+            } finally {
+                setLoading(false);
             }
         };
 
-        fetchRoutes();
-    }, [token, navigate]);
+        init();
+    }, [token, navigate, location.pathname]);
 
     const menuItems = routeList.map(item => ({
         key: item.route,
