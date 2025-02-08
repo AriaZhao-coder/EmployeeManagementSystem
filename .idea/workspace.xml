@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9315acf2-0833-4553-b2bd-abd7e1056e36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/attendance.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/attendance.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/attendance/component/ViolationChart.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/attendance/component/ViolationTable.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/attendance/css/attendance.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/attendance/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/attendance/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/staff/index.jsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +14,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -45,7 +41,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature-user-branch1",
+    "git-widget-placeholder": "feature-user-branch2",
     "last_opened_file_path": "/Users/ypp/WebstormProjects/staff/EmployeeManagementSystem",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
