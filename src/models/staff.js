@@ -5,7 +5,8 @@ import {
     deleteStaff,
     addStaff,
     updateStaff
-} from '@/api/staff';
+} from '../api/staff';
+
 
 export default function useStaffModel() {
     // 状态管理

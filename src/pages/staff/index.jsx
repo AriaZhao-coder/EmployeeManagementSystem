@@ -80,22 +80,43 @@ const StaffPage = () => {
         handleModalOk: async (values) => {
             setModalState(prev => ({ ...prev, loading: true }));
             try {
-                const operation = currentRecord?.id ?
-                    () => updateStaff(currentRecord.id, values) :
-                    () => addStaff(values);
+                let avatarUrl;
 
-                const res = await operation();
+                // 如果是新增员工且有头像文件
+                if (!currentRecord?.id && values.avatarFile) {
+                    const formData = new FormData();
+                    formData.append('avatar', values.avatarFile);
 
-                if (res?.code === 0) {
-                    message.success(`${currentRecord ? '更新' : '新增'}成功`);
-                    setModalState(prev => ({ ...prev, visible: false }));
-                } else if (res?.code === 403) {
-                    message.error(`没有${currentRecord ? '编辑' : '新增'}权限`);
-                } else {
-                    message.error(res?.msg || `${currentRecord ? '更新' : '新增'}失败`);
+                    // 先创建员工记录
+                    const addRes = await addStaff(values);
+                    if (addRes?.code === 0) {
+                        // 创建成功后上传头像
+                        const uploadRes = await uploadAvatar(formData, addRes.data.id);
+                        if (uploadRes?.code === 0) {
+                            avatarUrl = uploadRes.data.url;
+                        }
+                    }
+
+                    if (avatarUrl) {
+                        // 更新员工头像
+                        await updateStaff(addRes.data.id, { avatar: avatarUrl });
+                    }
+
+                    message.success('新增成功');
+                } else if (currentRecord?.id) {
+                    // 如果是编辑现有员工
+                    const res = await updateStaff(currentRecord.id, values);
+                    if (res?.code === 0) {
+                        message.success('更新成功');
+                    } else {
+                        throw new Error(res?.msg || '更新失败');
+                    }
                 }
+
+                setModalState(prev => ({ ...prev, visible: false }));
+                loadData(); // 刷新列表
             } catch (error) {
-                message.error('操作失败');
+                message.error(error.message || '操作失败');
             } finally {
                 setModalState(prev => ({ ...prev, loading: false }));
             }
@@ -131,9 +152,18 @@ const StaffPage = () => {
                     dataSource={data}
                     onEdit={modalHandlers.handleEdit}
                     onDelete={modalHandlers.handleDelete}
-                    onUpdateAvatar={(id, avatarUrl) =>
-                        updateStaff(id, { avatar: avatarUrl })
-                    }
+                    onUpdateAvatar={async (id, url) => {
+                        try {
+                            const res = await updateStaff(id, { avatar: url });
+                            if (res?.code === 0) {
+                                loadData();
+                            } else {
+                                message.error(res?.msg || '头像更新失败');
+                            }
+                        } catch (error) {
+                            message.error('头像更新失败');
+                        }
+                    }}
                 />
 
                 <CommonPagination

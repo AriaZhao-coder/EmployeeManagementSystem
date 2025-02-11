@@ -76,7 +76,9 @@ const StaffTable = ({
             render: (text, record) => (
                 <ImageUpload
                     value={text}
+                    employeeId={record.id}  // 添加 employeeId
                     onChange={(url) => onUpdateAvatar?.(record.id, url)}
+                    disabled={record.identity === 1} // 可选：如果是管理员则禁用
                 />
             )
         },
