@@ -1,8 +1,9 @@
 import React from 'react';
-import { Table, Space, Button } from 'antd';
+import { Table, Space, Button, Tag, Tooltip } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import DeleteConfirm from '../../../components/DeleteConfirm';
-import ImageUpload from '../../../components/ImageUpload';
+import DeleteConfirm from '@/components/DeleteConfirm';
+import ImageUpload from '@/components/ImageUpload';
+import dayjs from 'dayjs';
 
 const StaffTable = ({
                         loading,
@@ -18,6 +19,21 @@ const StaffTable = ({
             width: 120,
         },
         {
+            title: '用户名',
+            dataIndex: 'userName',
+            width: 120,
+        },
+        {
+            title: '身份',
+            dataIndex: 'identity',
+            width: 100,
+            render: (identity) => (
+                <Tag color={identity === 1 ? 'blue' : 'green'}>
+                    {identity === 1 ? '管理员' : '普通用户'}
+                </Tag>
+            )
+        },
+        {
             title: '部门',
             dataIndex: ['department', 'departmentName'],
             width: 150,
@@ -26,6 +42,11 @@ const StaffTable = ({
             title: '职级',
             dataIndex: ['level', 'levelName'],
             width: 120,
+            render: (text, record) => (
+                <Tooltip title={record.level?.levelDescription}>
+                    <span>{text}</span>
+                </Tooltip>
+            )
         },
         {
             title: '学历',
@@ -38,9 +59,15 @@ const StaffTable = ({
             width: 150,
         },
         {
+            title: '性别',
+            dataIndex: 'sex',
+            width: 80,
+        },
+        {
             title: '入职日期',
             dataIndex: 'joinDate',
             width: 120,
+            render: (text) => text ? dayjs(text).format('YYYY-MM-DD') : '-'
         },
         {
             title: '头像',
@@ -49,7 +76,7 @@ const StaffTable = ({
             render: (text, record) => (
                 <ImageUpload
                     value={text}
-                    onChange={(url) => onUpdateAvatar(record.id, url)}
+                    onChange={(url) => onUpdateAvatar?.(record.id, url)}
                 />
             )
         },
@@ -62,14 +89,14 @@ const StaffTable = ({
                     <Button
                         type="link"
                         icon={<EditOutlined />}
-                        onClick={() => onEdit(record)}
+                        onClick={() => onEdit?.(record)}
                     >
-                        编辑
+                        查看详情
                     </Button>
                     <DeleteConfirm
                         title="确认删除"
-                        content="确定要删除该员工吗？"
-                        onConfirm={() => onDelete(record.id)}
+                        content={`确定要删除员工 ${record.name} 吗？删除后将无法恢复！`}
+                        onConfirm={() => onDelete?.(record.id)}
                     >
                         <Button type="link" danger icon={<DeleteOutlined />}>
                             删除
@@ -86,7 +113,7 @@ const StaffTable = ({
             columns={columns}
             dataSource={dataSource}
             loading={loading}
-            scroll={{ x: 1300 }}
+            scroll={{ x: 1500 }}
             pagination={false}
         />
     );

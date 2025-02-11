@@ -5,61 +5,113 @@ import { PlusOutlined } from '@ant-design/icons';
 import StaffFilter from './components/StaffFilter';
 import StaffTable from './components/StaffTable';
 import StaffModal from './components/StaffModal';
-import CommonPagination from '../../components/CommonPagination';
-import './staff.less'
+import CommonPagination from '@/components/CommonPagination';
 
 const StaffPage = () => {
-    const [modalVisible, setModalVisible] = useState(false);
+    const [modalState, setModalState] = useState({
+        visible: false,
+        loading: false,
+        title: ''
+    });
+
     const {
-        loading,
+        loading: tableLoading,
         data,
         total,
         currentRecord,
-        currentPage,
-        pageSize,
+        pagination,
         setCurrentRecord,
-        fetchList,
+        loadData,
+        fetchDetail,
         removeStaff,
-        addNewStaff,
-        updateStaffInfo,
-        handleSearch,
-        handleReset,
-        handlePageChange
-    } =useModel('staff');
+        addStaff,
+        updateStaff,
+        handlePaginationChange,
+        handleFiltersChange,
+        handleReset
+    } = useModel('staff');
 
+    // 初始加载数据
     useEffect(() => {
-        fetchList();
-    }, [currentPage, pageSize, fetchList]);
+        loadData();
+    }, [pagination.current, pagination.pageSize, loadData]);
 
-    // 处理编辑
-    const handleEdit = (record) => {
-        setCurrentRecord(record);
-        setModalVisible(true);
-    };
+    // Modal 相关处理方法
+    const modalHandlers = {
+        handleAdd: () => {
+            setCurrentRecord(null);
+            setModalState({
+                visible: true,
+                loading: false,
+                title: '新增员工'
+            });
+        },
 
-    // 处理新增/编辑提交
-    const handleModalOk = async (values) => {
-        const api = currentRecord ?
-            () => updateStaffInfo(currentRecord.id, values) :
-            () => addNewStaff(values);
+        handleEdit: async (record) => {
+            setModalState(prev => ({ ...prev, loading: true }));
+            try {
+                const res = await fetchDetail(record.id);
+                if (res?.code === 0) {
+                    setCurrentRecord(res.data);
+                    setModalState({
+                        visible: true,
+                        loading: false,
+                        title: '员工信息'
+                    });
+                } else {
+                    message.error(res?.msg || '获取员工信息失败');
+                }
+            } catch (error) {
+                message.error('获取员工信息失败');
+            }
+        },
 
-        const res = await api();
-        if (res?.code === 0) {
-            setModalVisible(false);
+        handleDelete: async (id) => {
+            try {
+                const res = await removeStaff(id);
+                if (res?.code === 0) {
+                    message.success('删除成功');
+                }
+            } catch (error) {
+                message.error('删除失败');
+            }
+        },
+
+        handleModalOk: async (values) => {
+            setModalState(prev => ({ ...prev, loading: true }));
+            try {
+                const operation = currentRecord?.id ?
+                    () => updateStaff(currentRecord.id, values) :
+                    () => addStaff(values);
+
+                const res = await operation();
+
+                if (res?.code === 0) {
+                    message.success(`${currentRecord ? '更新' : '新增'}成功`);
+                    setModalState(prev => ({ ...prev, visible: false }));
+                } else if (res?.code === 403) {
+                    message.error(`没有${currentRecord ? '编辑' : '新增'}权限`);
+                } else {
+                    message.error(res?.msg || `${currentRecord ? '更新' : '新增'}失败`);
+                }
+            } catch (error) {
+                message.error('操作失败');
+            } finally {
+                setModalState(prev => ({ ...prev, loading: false }));
+            }
+        },
+
+        handleModalCancel: () => {
+            setModalState(prev => ({ ...prev, visible: false }));
             setCurrentRecord(null);
         }
-    };
-
-    // 处理头像更新
-    const handleUpdateAvatar = async (id, avatarUrl) => {
-        await updateStaffInfo(id, { avatar: avatarUrl });
     };
 
     return (
         <div className="staff-page">
             <StaffFilter
-                loading={loading}
-                onSearch={handleSearch}
+                loading={tableLoading}
+                onSearch={handleFiltersChange}
                 onReset={handleReset}
             />
 
@@ -68,40 +120,35 @@ const StaffPage = () => {
                     <Button
                         type="primary"
                         icon={<PlusOutlined />}
-                        onClick={() => {
-                            setCurrentRecord(null);
-                            setModalVisible(true);
-                        }}
+                        onClick={modalHandlers.handleAdd}
                     >
                         新增员工
                     </Button>
                 </div>
 
                 <StaffTable
-                    loading={loading}
+                    loading={tableLoading}
                     dataSource={data}
-                    onEdit={handleEdit}
-                    onDelete={removeStaff}
-                    onUpdateAvatar={handleUpdateAvatar}
+                    onEdit={modalHandlers.handleEdit}
+                    onDelete={modalHandlers.handleDelete}
+                    onUpdateAvatar={(id, avatarUrl) =>
+                        updateStaff(id, { avatar: avatarUrl })
+                    }
                 />
 
                 <CommonPagination
-                    current={currentPage}
+                    current={pagination.current}
                     total={total}
-                    pageSize={pageSize}
-                    onChange={handlePageChange}
+                    pageSize={pagination.pageSize}
+                    onChange={handlePaginationChange}
                 />
             </Card>
 
             <StaffModal
-                visible={modalVisible}
-                loading={loading}
+                {...modalState}
                 initialValues={currentRecord}
-                onOk={handleModalOk}
-                onCancel={() => {
-                    setModalVisible(false);
-                    setCurrentRecord(null);
-                }}
+                onOk={modalHandlers.handleModalOk}
+                onCancel={modalHandlers.handleModalCancel}
             />
         </div>
     );

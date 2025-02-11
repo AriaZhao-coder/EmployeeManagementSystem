@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9315acf2-0833-4553-b2bd-abd7e1056e36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/staff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CommonPagination.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DeleteConfirm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ImageUpload.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/staff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffFilter.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffModal.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffTable.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/staff/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/staff/staff.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/EmployeeManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EmployeeManagementSystem.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/staff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/staff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/staff/components/StaffFilter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffFilter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/staff/components/StaffModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/staff/components/StaffTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/staff/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staff/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +95,7 @@
       <workItem from="1737444583465" duration="16650000" />
       <workItem from="1737637246190" duration="22868000" />
       <workItem from="1738938855107" duration="771000" />
-      <workItem from="1739069265985" duration="15038000" />
+      <workItem from="1739069265985" duration="33266000" />
     </task>
     <servers />
   </component>
