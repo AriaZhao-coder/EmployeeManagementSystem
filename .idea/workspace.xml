@@ -5,17 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9315acf2-0833-4553-b2bd-abd7e1056e36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/attendance.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/attendance.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/attendance/component/ViolationChart.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/attendance/component/ViolationTable.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/attendance/css/attendance.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/staff.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CommonPagination.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DeleteConfirm.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ImageUpload.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/staff.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffFilter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/staff/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/staff/staff.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/EmployeeManagementSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EmployeeManagementSystem.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/attendance/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/attendance/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/staff/index.jsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +27,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -36,27 +45,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Node.js.iconMap.jsx.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature-user-branch1",
-    "last_opened_file_path": "/Users/ypp/WebstormProjects/staff/EmployeeManagementSystem",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Users/ypp/WebstormProjects/staff/EmployeeManagementSystem/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.iconMap.jsx.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature-user-branch2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ypp/WebstormProjects/staff/EmployeeManagementSystem&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/ypp/WebstormProjects/staff/EmployeeManagementSystem/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/utils/rules" />
@@ -94,6 +103,7 @@
       <workItem from="1737444583465" duration="16650000" />
       <workItem from="1737637246190" duration="22868000" />
       <workItem from="1738938855107" duration="771000" />
+      <workItem from="1739069265985" duration="15038000" />
     </task>
     <servers />
   </component>
@@ -102,6 +112,11 @@
     <option name="exactExcludedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/.umi/core/routeProps.js" />
+      </list>
+    </option>
+    <option name="additionalRoots">
+      <list>
+        <option value="$PROJECT_DIR$/src/.umi" />
       </list>
     </option>
   </component>

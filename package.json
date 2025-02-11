@@ -11,6 +11,7 @@
   "dependencies": {
     "@umijs/max": "^4.4.4",
     "axios": "^1.7.9",
+    "dayjs": "^1.11.13",
     "echarts": "^5.6.0",
     "echarts-for-react": "^3.0.2"
   },
