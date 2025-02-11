@@ -1,151 +1,156 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import {
     getStaffList,
     getStaffDetail,
     deleteStaff,
     addStaff,
     updateStaff
-} from '../api';
-import { message } from 'antd';
+} from '@/api/staff';
 
 export default function useStaffModel() {
+    // 状态管理
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [total, setTotal] = useState(0);
     const [currentRecord, setCurrentRecord] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
-    const [queryData, setQueryData] = useState({});
+    const [pagination, setPagination] = useState({
+        current: 1,
+        pageSize: 10
+    });
+    const [filters, setFilters] = useState({});
 
-    // 获取员工列表
-    const fetchList = useCallback(async (params = {}) => {
+    // 用于防止重复请求
+    const requestRef = useRef(null);
+
+    // 核心数据加载方法
+    const loadData = useCallback(async () => {
+        // 取消之前的请求
+        if (requestRef.current) {
+            requestRef.current.abort();
+        }
+
+        // 创建新的 AbortController
+        const controller = new AbortController();
+        requestRef.current = controller;
+
         setLoading(true);
         try {
             const res = await getStaffList({
-                page: currentPage,
-                size: pageSize,
-                queryData: {
-                    ...queryData,
-                    ...params
-                }
-            });
+                page: pagination.current,
+                size: pagination.pageSize,
+                queryData: filters
+            }, { signal: controller.signal });
+
             if (res.code === 0) {
                 setData(res.data.staffList);
                 setTotal(res.data.total);
             }
             return res;
         } catch (error) {
-            message.error('获取员工列表失败');
+            if (error.name !== 'AbortError') {
+                throw error;
+            }
         } finally {
             setLoading(false);
+            requestRef.current = null;
         }
-    }, [currentPage, pageSize, queryData]);
+    }, [pagination.current, pagination.pageSize, filters]);
 
-    // 获取员工详情
-    const fetchDetail = useCallback(async (id) => {
-        setLoading(true);
-        try {
-            const res = await getStaffDetail(id);
-            if (res.code === 0) {
-                setCurrentRecord(res.data);
+    // 数据操作方法
+    const operations = {
+        // 获取详情
+        fetchDetail: async (id) => {
+            try {
+                return await getStaffDetail(id);
+            } catch (error) {
+                throw error;
             }
-            return res;
-        } catch (error) {
-            message.error('获取员工详情失败');
-        } finally {
-            setLoading(false);
-        }
-    }, []);
+        },
 
-    // 删除员工
-    const removeStaff = useCallback(async (id) => {
-        try {
-            const res = await deleteStaff(id);
-            if (res.code === 0) {
-                message.success('删除成功');
-                await fetchList();
-            } else if (res.code === 403) {
-                message.error('没有删除权限');
-            } else {
-                message.error(res.msg || '删除失败');
+        // 删除员工
+        removeStaff: async (id) => {
+            try {
+                const res = await deleteStaff(id);
+                if (res.code === 0) {
+                    // 处理删除后的页码逻辑
+                    if (data.length === 1 && pagination.current > 1) {
+                        setPagination(prev => ({
+                            ...prev,
+                            current: prev.current - 1
+                        }));
+                    } else {
+                        await loadData();
+                    }
+                }
+                return res;
+            } catch (error) {
+                throw error;
             }
-            return res;
-        } catch (error) {
-            message.error('删除失败');
-        }
-    }, [fetchList]);
+        },
 
-    // 新增员工
-    const addNewStaff = useCallback(async (values) => {
-        try {
-            const res = await addStaff(values);
-            if (res.code === 0) {
-                message.success('新增成功');
-                await fetchList();
-            } else if (res.code === 403) {
-                message.error('没有新增权限');
-            } else {
-                message.error(res.msg || '新增失败');
+        // 新增员工
+        addStaff: async (values) => {
+            try {
+                const res = await addStaff(values);
+                if (res.code === 0) {
+                    await loadData();
+                }
+                return res;
+            } catch (error) {
+                throw error;
             }
-            return res;
-        } catch (error) {
-            message.error('新增失败');
-        }
-    }, [fetchList]);
+        },
 
-    // 更新员工
-    const updateStaffInfo = useCallback(async (id, values) => {
-        try {
-            const res = await updateStaff(id, values);
-            if (res.code === 0) {
-                message.success('更新成功');
-                await fetchList();
-            } else if (res.code === 403) {
-                message.error('没有修改权限');
-            } else {
-                message.error(res.msg || '更新失败');
+        // 更新员工
+        updateStaff: async (id, values) => {
+            try {
+                const res = await updateStaff(id, values);
+                if (res.code === 0) {
+                    await loadData();
+                }
+                return res;
+            } catch (error) {
+                throw error;
             }
-            return res;
-        } catch (error) {
-            message.error('更新失败');
         }
-    }, [fetchList]);
+    };
 
-    // 处理筛选
-    const handleSearch = useCallback((values) => {
-        setCurrentPage(1);
-        setQueryData(values);
-        fetchList(values);
-    }, [fetchList]);
+    // 分页和筛选处理
+    const handlers = {
+        handlePaginationChange: (current, pageSize) => {
+            setPagination({ current, pageSize });
+        },
 
-    // 处理重置
-    const handleReset = useCallback(() => {
-        setCurrentPage(1);
-        setQueryData({});
-        fetchList();
-    }, [fetchList]);
+        handleFiltersChange: (newFilters) => {
+            setFilters(newFilters);
+            setPagination(prev => ({ ...prev, current: 1 }));
+        },
 
-    // 处理分页变化
-    const handlePageChange = useCallback((page, size) => {
-        setCurrentPage(page);
-        setPageSize(size);
-    }, []);
+        handleReset: () => {
+            setFilters({});
+            setPagination(prev => ({ ...prev, current: 1 }));
+        }
+    };
 
     return {
+        // 状态
         loading,
         data,
         total,
         currentRecord,
-        currentPage,
-        pageSize,
+        pagination,
+        filters,
+
+        // 状态设置器
         setCurrentRecord,
-        fetchList,
-        fetchDetail,
-        removeStaff,
-        addNewStaff,
-        updateStaffInfo,
-        handleSearch,
-        handleReset,
-        handlePageChange
+
+        // 数据加载
+        loadData,
+
+        // 操作方法
+        ...operations,
+
+        // 事件处理器
+        ...handlers
     };
 }
