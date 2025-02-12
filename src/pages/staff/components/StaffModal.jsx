@@ -4,6 +4,7 @@ import { EditOutlined } from '@ant-design/icons';
 import ImageUpload from '@/components/ImageUpload';
 import dayjs from 'dayjs';
 
+
 const { Option } = Select;
 
 // 部门数据
@@ -62,20 +63,12 @@ const StaffModal = ({
         try {
             const values = await form.validateFields();
 
-            // 如果是新增员工且有选择头像
-            if (!isEdit && imageUploadRef.current) {
-                const tempFile = imageUploadRef.current.getTempFile();
-                if (tempFile) {
-                    // 将临时文件添加到表单数据中
-                    values.avatarFile = tempFile;
-                }
-            }
-
             const submitData = {
                 ...values,
                 level: values.level,
                 department: values.department,
             };
+
             onOk?.(submitData);
         } catch (error) {
             console.error('表单验证失败:', error);

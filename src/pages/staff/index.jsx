@@ -80,37 +80,37 @@ const StaffPage = () => {
         handleModalOk: async (values) => {
             setModalState(prev => ({ ...prev, loading: true }));
             try {
-                let avatarUrl;
-
-                // 如果是新增员工且有头像文件
-                if (!currentRecord?.id && values.avatarFile) {
-                    const formData = new FormData();
-                    formData.append('avatar', values.avatarFile);
+                if (!currentRecord?.id) {
+                    // 新增员工
+                    let staffData = { ...values };
+                    delete staffData.avatarFile;
 
                     // 先创建员工记录
-                    const addRes = await addStaff(values);
-                    if (addRes?.code === 0) {
-                        // 创建成功后上传头像
+                    const addRes = await addStaff(staffData);
+                    if (addRes?.code !== 0) {
+                        throw new Error(addRes?.msg || '新增员工失败');
+                    }
+
+                    // 如果有头像文件，上传头像
+                    if (values.avatarFile) {
+                        const formData = new FormData();
+                        formData.append('avatar', values.avatarFile);
                         const uploadRes = await uploadAvatar(formData, addRes.data.id);
+
                         if (uploadRes?.code === 0) {
-                            avatarUrl = uploadRes.data.url;
+                            // 更新员工头像
+                            await updateStaff(addRes.data.id, { avatar: uploadRes.data.url });
                         }
                     }
 
-                    if (avatarUrl) {
-                        // 更新员工头像
-                        await updateStaff(addRes.data.id, { avatar: avatarUrl });
-                    }
-
                     message.success('新增成功');
-                } else if (currentRecord?.id) {
-                    // 如果是编辑现有员工
+                } else {
+                    // 编辑现有员工
                     const res = await updateStaff(currentRecord.id, values);
-                    if (res?.code === 0) {
-                        message.success('更新成功');
-                    } else {
+                    if (res?.code !== 0) {
                         throw new Error(res?.msg || '更新失败');
                     }
+                    message.success('更新成功');
                 }
 
                 setModalState(prev => ({ ...prev, visible: false }));
