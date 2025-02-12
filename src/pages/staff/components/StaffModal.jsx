@@ -4,6 +4,7 @@ import { EditOutlined } from '@ant-design/icons';
 import ImageUpload from '@/components/ImageUpload';
 import dayjs from 'dayjs';
 
+
 const { Option } = Select;
 
 // 部门数据
@@ -40,7 +41,7 @@ const StaffModal = ({
     const [form] = Form.useForm();
     const isEdit = !!initialValues;
     const [editing, setEditing] = React.useState(!isEdit);
-
+    const imageUploadRef = React.useRef();
 
 
     useEffect(() => {
@@ -50,7 +51,8 @@ const StaffModal = ({
                 birthday: initialValues.birthday ? dayjs(initialValues.birthday) : undefined,
                 joinDate: initialValues.joinDate ? dayjs(initialValues.joinDate) : undefined,
                 level: LEVELS.find(l => l.name === initialValues.level?.levelName)?.id,
-                department: initialValues.department?.id
+                department: initialValues.department?.id,
+                avatar: initialValues.avatar
             });
         } else {
             form.resetFields();
@@ -60,11 +62,13 @@ const StaffModal = ({
     const handleOk = async () => {
         try {
             const values = await form.validateFields();
+
             const submitData = {
                 ...values,
                 level: values.level,
-                department: values.department
+                department: values.department,
             };
+
             onOk?.(submitData);
         } catch (error) {
             console.error('表单验证失败:', error);
@@ -97,9 +101,17 @@ const StaffModal = ({
         <Form
             form={form}
             layout="vertical"
+            tooltip="支持 jpg/png 格式，大小不超过 2MB"
         >
-            <Form.Item label="头像" name="avatar">
-                <ImageUpload />
+            <Form.Item
+                label="头像"
+                name="avatar"
+                tooltip="支持 jpg/png 格式，大小不超过 2MB"
+            >
+                <ImageUpload
+                    ref={imageUploadRef}
+                    employeeId={initialValues?.id}
+                />
             </Form.Item>
 
             <Form.Item

@@ -31,7 +31,7 @@ request.interceptors.response.use(
 
         if (response) {
             switch (response.status) {
-                case 401: // token 失效
+                case 401:
                     message.error('登录已过期，请重新登录');
                     storage.clear();
                     window.location.href = '/users/login';

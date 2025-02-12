@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9315acf2-0833-4553-b2bd-abd7e1056e36" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/staff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/staff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/staff/components/StaffFilter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffFilter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/avatar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/avatar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageUpload.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/staff/components/StaffModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffModal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/staff/components/StaffTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staff/components/StaffTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/staff/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/staff/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +94,7 @@
       <workItem from="1737444583465" duration="16650000" />
       <workItem from="1737637246190" duration="22868000" />
       <workItem from="1738938855107" duration="771000" />
-      <workItem from="1739069265985" duration="33266000" />
+      <workItem from="1739069265985" duration="55170000" />
     </task>
     <servers />
   </component>
