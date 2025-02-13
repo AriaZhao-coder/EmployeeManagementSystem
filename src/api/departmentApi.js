@@ -1,4 +1,4 @@
-// src/api/department.js
+// src/api/departmentApi.js
 import request from '../utils/request';
 
 // 获取部门列表（树形结构）

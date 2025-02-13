@@ -10,7 +10,7 @@ const SmCodeLogin = ({ form}) => {
     const [timer, setTimer] = useState(null);
 
     // 发送验证码
-    const _sendSmCode = async () => {
+    const sendSmCode = async () => {
         if (disabled) return;
          try {
              const mobile = form.getFieldValue('mobile');
@@ -110,7 +110,7 @@ const SmCodeLogin = ({ form}) => {
                     <Button
                         style={{ width: '120px', marginLeft: '10px' }}
                         disabled={disabled}
-                        onClick={_sendSmCode}
+                        onClick={sendSmCode}
                     >
                         {buttonText}
                     </Button>

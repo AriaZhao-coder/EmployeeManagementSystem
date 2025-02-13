@@ -32,12 +32,6 @@ export const forgetPassword = (data) => {
     });
 };
 
-export const getUserInfo = () => {
-    return request({
-        url: '/user/info',
-        method: 'get'
-    });
-};
 
 export const getRouteList = () => {
     return request({

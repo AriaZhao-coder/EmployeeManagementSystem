@@ -42,12 +42,11 @@ export const deleteStaff = (id) => {
 
 // 新增员工
 export const addStaff = (data) => {
-    // 格式化日期为 YYYY-MM-DD
     const formattedData = {
         ...data,
         birthday: data.birthday?.format('YYYY-MM-DD'),
         joinDate: data.joinDate?.format('YYYY-MM-DD'),
-        // 确保部门和职级格式正确
+
         department: {
             id: data.department
         },

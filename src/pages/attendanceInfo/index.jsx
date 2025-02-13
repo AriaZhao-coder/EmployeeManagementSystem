@@ -1,9 +1,9 @@
 import React from 'react';
 
-function attendanceInfo(props) {
+function AttendanceInfo(props) {
     return (
         <div>考勤信息</div>
     );
 }
 
-export default attendanceInfo;
+export default AttendanceInfo;

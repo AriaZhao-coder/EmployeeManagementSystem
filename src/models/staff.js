@@ -5,7 +5,7 @@ import {
     deleteStaff,
     addStaff,
     updateStaff
-} from '../api/staff';
+} from '../api/staffApi';
 
 
 export default function useStaffModel() {
@@ -141,16 +141,12 @@ export default function useStaffModel() {
         currentRecord,
         pagination,
         filters,
-
         // 状态设置器
         setCurrentRecord,
-
         // 数据加载
         loadData,
-
         // 操作方法
         ...operations,
-
         // 事件处理器
         ...handlers
     };

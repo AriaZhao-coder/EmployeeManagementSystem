@@ -3,7 +3,7 @@ import { Form, Input, Button, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { sendCode, forgetPassword } from '@/api';
 import IconMap from 'components/IconMap';
-import './css/login.less';
+import './css/Login.less';
 
 const ForgetPassword = () => {
     const [form] = Form.useForm();

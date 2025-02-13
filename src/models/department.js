@@ -1,7 +1,7 @@
-// src/models/department.js
+// src/models/departmentApi.js
 import { useState, useCallback } from 'react';
 import { message } from 'antd';
-import { getDepartmentList, getDepartmentDetail, addDepartment, deleteDepartment } from "../api/department";
+import { getDepartmentList, getDepartmentDetail, addDepartment, deleteDepartment } from "../api/departmentApi";
 
 // 添加延迟函数
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));

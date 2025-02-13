@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 import { useLocation } from 'umi';
 import { useNavigate } from 'react-router-dom';
-import AccountLogin from './component/AccountLogin';
-import SmCodeLogin from './component/SmCodeLogin';
+import AccountLogin from '@/pages/users/components/AccountLogin';
+import SmCodeLogin from '@/pages/users/components/SmCodeLogin';
 import IconMap from 'components/IconMap';
-import './css/login.less'
+import './css/Login.less'
 import logoImg from '../../assets/img/logo.jpg';
 import storage from '../../utils/storage';
 import { login } from '../../api';

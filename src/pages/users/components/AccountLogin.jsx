@@ -1,6 +1,5 @@
 import React from 'react';
 import IconMap from "components/IconMap";
-import { message } from 'antd';
 
 function AccountLogin({Input, FromItem}) {
     return (

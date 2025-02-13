@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useImperativeHandle } from 'react';
 import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { uploadAvatar, updateEmployeeAvatar, getFullImageUrl } from '../api/avatar';  // 导入API服务
+import { uploadAvatar, updateEmployeeAvatar, getFullImageUrl } from '../api/avatarApi';  // 导入API服务
 
 const ImageUpload = React.forwardRef(({ value, onChange, employeeId }, ref) => {
     const [loading, setLoading] = useState(false);
