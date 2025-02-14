@@ -83,9 +83,8 @@ Day.js 时间处理<br/>
 
 <h3>快速开始</h3>
 1. 环境准备
-
-Node.js (18.0.0 或以上)
-npm 或 yarn
+Node.js (18.0.0 或以上)<br/>
+npm 或 yarn<br/>
 推荐使用 VSCode 编辑器
 2. 安装和启动
 克隆项目
@@ -146,11 +145,10 @@ staffApi.js - 员工管理
 userApi.js - 用户认证与管理
 ```
 <h3>参与贡献</h3>
-```markdown
-Fork 本仓库
-创建特性分支 (git checkout -b feature/AmazingFeature)
-提交更改 (git commit -m '添加一些特性')
-推送到分支 (git push origin feature/AmazingFeature)
-提交 Pull Request
-```
+Fork 本仓库</br>
+创建特性分支 (git checkout -b feature/AmazingFeature)</br>
+提交更改 (git commit -m '添加一些特性')</br>
+推送到分支 (git push origin feature/AmazingFeature)</br>
+提交 Pull Request</br>
+
 
