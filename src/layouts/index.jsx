@@ -1,19 +1,30 @@
-import React from 'react';
-import { useLocation } from 'umi';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'umi';
 import { selectLayout } from 'utils/selectLayout';
 import BaseLayout from './BaseLayout';
 import LoginLayout from './LoginLayout';
 import AuthRoute from '../components/AuthRoute';
-import { Outlet } from 'umi';  // 引入 Outlet
+import { Outlet } from 'umi';
 
 const Layout = () => {
-    const location = useLocation(); // 获取当前路由信息
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [routeReady, setRouteReady] = useState(false);
     const layoutMap = { BaseLayout, LoginLayout };
-
-    const layoutName = selectLayout(location.pathname); // 根据路径选择布局
-
-
+    const layoutName = selectLayout(location.pathname);
     const Container = layoutMap[layoutName] || BaseLayout;
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token && location.pathname !== '/users/login') {
+            navigate('/users/login');
+        }
+        setRouteReady(true);
+    }, [location.pathname, navigate]);
+
+    if (!routeReady) {
+        return null;
+    }
 
     return (
         <AuthRoute>
@@ -21,7 +32,6 @@ const Layout = () => {
                 <Outlet />
             </Container>
         </AuthRoute>
-
     );
 };
 

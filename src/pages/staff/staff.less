@@ -1,18 +1,51 @@
 .staff-page {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
 
+  // 头像上传器适配
   .avatar-uploader {
     .ant-upload {
-      width: 128px;
+      width: 100%;
+      max-width: 128px;
       height: 128px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
+  // 表格内头像上传器适配
   .ant-table {
     .ant-table-cell {
       .ant-upload {
-        width: 64px;
+        width: 100%;
+        max-width: 64px;
         height: 64px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  // 响应式调整
+  @media (max-width: 768px) {
+    .avatar-uploader {
+      .ant-upload {
+        max-width: 96px;
+        height: 96px;
+      }
+    }
+
+    .ant-table {
+      .ant-table-cell {
+        .ant-upload {
+          max-width: 48px;
+          height: 48px;
+        }
       }
     }
   }

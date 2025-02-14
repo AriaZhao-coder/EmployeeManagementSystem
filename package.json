@@ -14,7 +14,6 @@
     "dayjs": "^1.11.13",
     "echarts": "^5.6.0",
     "echarts-for-react": "^3.0.2",
-    "react-d3-tree": "^3.6.5",
     "react-org-tree": "^1.0.1"
   },
   "devDependencies": {

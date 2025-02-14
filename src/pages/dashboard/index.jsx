@@ -12,8 +12,18 @@ const Dashboard = () => {
     const { loading, amountDataList, staffData, pieList, columnList, constellationData, fetchDashboardData} = useModel('dashboard');
 
     useEffect(() => {
-        fetchDashboardData();
+        // 添加一个延迟加载机制
+        const initDashboard = async () => {
+            await fetchDashboardData();
+        };
+        initDashboard();
     }, [fetchDashboardData]);
+
+    // 添加数据准备检查
+    if (!amountDataList.length || !pieList.length) {
+        return <Spin spinning={true} tip="Loading..." />;
+    }
+
 
     return (
         <Spin spinning={loading} tip="Loading...">
