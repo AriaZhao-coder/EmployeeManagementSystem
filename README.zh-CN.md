@@ -59,7 +59,7 @@
 
 
 <h3>项目目录</h3>
-```bash
+```text
 src/
 ├── api/                 # API 接口模块
 ├── assets/             # 静态资源

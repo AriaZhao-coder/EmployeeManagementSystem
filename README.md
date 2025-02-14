@@ -57,7 +57,7 @@ Position level management
 
 
 <h3>Project Structure</h3>
-```bash
+```text
 src/
 ├── api/                 # API interface modules
 ├── assets/             # Static resources
