@@ -14,9 +14,13 @@ const Layout = () => {
     const layoutName = selectLayout(location.pathname);
     const Container = layoutMap[layoutName] || BaseLayout;
 
+
+    //定义白名单路径
+    const whiteList = ['/users/login', '/users/register', '/users/forgetPassword'];
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if (!token && location.pathname !== '/users/login') {
+        // 修改重定向逻辑，增加白名单判断
+        if (!token && !whiteList.includes(location.pathname)) {
             navigate('/users/login');
         }
         setRouteReady(true);
@@ -25,7 +29,6 @@ const Layout = () => {
     if (!routeReady) {
         return null;
     }
-
     return (
         <AuthRoute>
             <Container>
