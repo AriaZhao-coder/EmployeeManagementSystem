@@ -59,7 +59,7 @@ Position level management
 <h3>Project Structure</h3>
 ```text
 src/
-├── api/                 # API interface modules
+├── api/                # API interface modules
 ├── assets/             # Static resources
 ├── components/         # Reusable components
 ├── layouts/            # Layout components
