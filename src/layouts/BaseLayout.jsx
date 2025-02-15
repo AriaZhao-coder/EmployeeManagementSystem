@@ -89,7 +89,7 @@ const BaseLayout = () => {
     // 登出处理
     const handleLogout = () => {
         // 清理本地存储
-        localStorage.removeItem('token');
+        localStorage.clear();
         // 可以添加其他需要清理的状态
         setRouteList([]);
         setLayoutReady(false);

@@ -1,101 +1,126 @@
-<h1>员工管理系统</h1>
-
-<h2>一个基于 React 的综合性员工管理系统，具有考勤跟踪、部门管理和分析仪表板等功能。</h2>
-
 <div align="center">
-  <img src="src/assets/img/dashboard.jpg" width="500" alt="主页面">
+
+# 🏢 Employee Management System
+
+#### 基于 React 的现代化员工管理系统，提供全面的人力资源管理解决方案
+
+#### *"React + UmiJS + JavaScript + ECharts"*
+
+🌐 [English](./README.md) · [简体中文](./README_zh-CN.md) · [后端地址](https://github.com/AriaZhao-coder/AdminSystemServer.git)
+
+
+![主页面](src/assets/img/dashboard.jpg)
+
+
 </div>
 
+## 📝 概述
 
-<h3>✨功能特点</h3>
+`Employee Management System` 是一个**功能丰富**且**易于使用**的员工管理系统，专为现代企业的人力资源管理需求设计。本系统基于 React 和 UmiJS 构建，提供了直观的用户界面和强大的数据分析功能，帮助企业更好地管理员工信息、跟踪考勤记录，并通过数据可视化深入了解组织结构。
 
-<h4>一、用户认证<h4>
-<div >
-账号密码登录和短信验证码登录<br/>
-密码找回功能<br/>
-用户注册系统
-</div>
+## 🌟 核心功能
 
+- **👤 智能用户认证**：多样化的登录方式和安全的用户认证
+- **📊 数据分析仪表板**：直观的数据可视化和实时统计
+- **👥 员工信息管理**：全面的员工档案和绩效跟踪
+- **🏢 部门管理系统**：灵活的组织架构管理
+- **⏰ 考勤追踪系统**：精确的考勤记录和统计分析
+- **💰 综合薪资管理**：完整的薪资核算和奖惩记录
+
+## 🛠️ 技术栈
+
+- **📚 框架**：React 18 + UmiJS Max V4
+- **🔧 语言**：JavaScript 
+- **📊 可视化**：ECharts
+- **🌐 网络**：Axios
+- **⏱️ 工具库**：Day.js
+- **🎨 UI组件**：Ant Design
+
+🔐 权限控制
+
+管理员权限（👑 Admin）
+
+✅ 查看所有员工信息<br>
+✅ 新增员工档案<br>
+✅ 编辑员工基本信息<br>
+✅ 删除员工记录<br>
+❌ 修改员工头像
+
+普通用户权限（👤 User）
+
+✅ 查看个人信息<br>
+✅ 修改个人头像<br>
+❌ 查看他人信息<br>
+❌ 增删改员工信息<br>
+
+## 功能详解
+
+### 1. 🔐 用户认证模块
+
+- **多方式登录**
+  - 账号密码登录
+  - 短信验证码登录
+- **安全管理**
+  - 密码重置
 <div align="center">
-<img src="src/assets/img/login.jpg" width="500" alt="登录界面截图">
+<img src="src/assets/img/login.png" width="500" alt="Login Interface">
 </div>
 
-<h4>二、数据分析仪表板</h4>
-<div>
-员工人口统计可视化<br/>
-年龄分布图表<br/>
-部门人员分布<br/>
-资深员工跟踪
+### 2. 📈 数据分析仪表板
+
+- **人员分布**
+  - 部门人数统计
+  - 年龄结构分析
+  - 性别星座占比
+  - 学历分布图表
+<div align="center">
+<img src="src/assets/img/analysisDashboard.png" width="500" alt="Data analysis dashboard">
 </div>
 
-<h4>三、部门管理</h4>
-<div>
-层级部门结构<br/>
-部门树形展示<br/>
-部门增删改查操作
+- **考勤分析**
+  - 异常考勤追踪
+<div align="center">
+<img src="src/assets/img/attendance.png" width="500" alt="attendance">
 </div>
 
-<h4>四、员工管理</h4>
-<div>
-全面的员工信息管理<br/>
-员工筛选和搜索<br/>
-头像上传功能
-员工绩效考核
-</div>
+### 3. 🏢 部门管理功能
 
-<h4>五、考勤系统</h4>
-<div>
-考勤记录与跟踪<br/>
-违规监控和报告<br/>
-考勤统计可视化
-</div>
-
-<h4>👋🏻其他功能</h4>
-<div>
-薪资管理<br/>
-奖惩记录<br/>
-职级管理
+- **组织架构**
+  - 多级部门管理
+  - 树形结构展示
+  - 部门人员配置
+<div align="center">
+<img src="src/assets/img/department.png" width="500" alt="department">
 </div>
 
 
-<h3>项目目录</h3>
-```text
-src/
-├── api/                 # API 接口模块
-├── assets/             # 静态资源
-├── components/         # 可复用组件
-├── layouts/            # 布局组件
-├── models/            # 数据模型
-├── pages/             # 页面组件
-│   ├── dashboard/     # 分析仪表板
-│   ├── department/    # 部门管理
-│   ├── staff/         # 员工管理
-│   └── users/         # 用户认证
-└── utils/             # 工具函数
-```
+### 4. 👥 员工档案管理
 
+- **信息管理**
+  - 基础信息维护
+  - 员工头像修改
+  - 新增员工信息
+<div align="center">
+<img src="src/assets/img/staff.png" width="500" alt="staff">
+</div>
 
-<h3>🤖技术栈</h3>
-基于 @umijs/max V4 版本<br/>
-React 18<br/>
-TypeScript 5.0+<br/>
-ECharts 可视化图表<br/>
-Axios 网络请求<br/>
-Day.js 时间处理<br/>
+## 🚀 快速开始
 
+### 环境要求
 
-<h3>快速开始</h3>
-1. 环境准备
-Node.js (18.0.0 或以上)<br/>
-npm 或 yarn<br/>
-推荐使用 VSCode 编辑器
-2. 安装和启动
-克隆项目
+- Node.js 18.0.0+
+- npm 或 yarn
+- VSCode（推荐）
+
+### 安装步骤
+
+1. **克隆项目**
 ```bash
-git clone [仓库地址]
-cd [项目文件夹]
+git clone https://github.com/AriaZhao-coder/EmployeeManagementSystem.git
+cd employee-management-system
 ```
-安装依赖
+
+2. **安装依赖**
 ```bash
 # 使用 npm
 npm install
@@ -103,63 +128,101 @@ npm install
 # 或使用 yarn
 yarn install
 ```
-项目启动
+
+3. **启动项目**
 ```bash
-# 开发环境启动（以下命令效果相同）
+# 开发环境
 npm start
-# 或
-npm run dev
 # 或
 yarn dev
 ```
-项目构建
+
+4. **项目构建**
 ```bash
-# 生产环境构建
+# 生产环境
 npm run build
 # 或
 yarn build
 ```
 
+## 📁 项目结构
 
-<h3>开发说明</h3>
-```markdown
-本项目使用 UmiJS Max 脚手架，首次安装依赖后会自动执行 max setup
-开发服务器默认运行在 http://localhost:8000
-项目使用 TypeScript，请确保代码符合类型定义
-图表可视化使用 ECharts，支持各类数据图表展示
-组织架构树使用 react-org-tree 组件实现
-```
-
-
-<h3>注意事项</h3>
-```markdown
-确保 Node.js 版本符合要求
-如遇到依赖安装问题，可尝试删除 node_modules 后重新安装
-开发时注意保持良好的 TypeScript 类型定义
-提交代码前请确保已完成必要的代码检查
-```
-
-
-<h3>配置说明</h3>
-项目使用 TypeScript 配置，详见 tsconfig.json。自定义类型定义在 typings.d.ts 中。
-
-
-<h3>API 接口说明</h3>
-API 模块在 src/api 目录下：
 ```bash
-adminApi.js - 管理员操作
-attendanceApi.js - 考勤管理
-departmentApi.js - 部门操作
-staffApi.js - 员工管理
-userApi.js - 用户认证与管理
+src/
+├── api/                 # API 接口定义
+│   ├── admin.ts        # 管理接口
+│   ├── attendance.ts   # 考勤接口
+│   └── employee.ts     # 员工接口
+├── assets/             # 静态资源
+├── components/         # 通用组件
+├── layouts/            # 布局组件
+├── models/             # 数据模型
+├── pages/              # 页面组件
+└── utils/              # 工具函数
 ```
 
+## ⚙️ 配置说明
 
-<h3>参与贡献</h3>
-Fork 本仓库</br>
-创建特性分支 (git checkout -b feature/AmazingFeature)</br>
-提交更改 (git commit -m '添加一些特性')</br>
-推送到分支 (git push origin feature/AmazingFeature)</br>
-提交 Pull Request</br>
+### 1. **开发环境配置**
+
+```yaml
+server:
+  port: 8000
+  host: localhost
+
+api:
+  baseURL: /api
+  timeout: 5000
+
+upload:
+  maxSize: 5242880  # 5MB
+  allowTypes: ['image/jpeg', 'image/png']
+```
+
+### 2. **构建配置**
 
 
+```javascript
+export default {
+  antd: {},
+  access: {},
+  model: {},
+  initialState: {},
+  request: {},
+  layout: {
+    title: '员工管理系统',
+  },
+}
+```
+
+## 🎯 最佳实践
+
+1. **代码规范**
+  - 遵循 javaScript 规范
+  - 使用 ESLint 进行代码检查
+  - 保持组件纯函数设计
+
+2. **性能优化**
+  - 实现组件懒加载
+  - 使用 React.memo 优化渲染
+  - 合理使用 useMemo 和 useCallback
+
+
+## 🤝 参与贡献
+
+1. Fork 本仓库
+2. 创建分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add: 新特性'`)
+4. 推送分支 (`git push origin feature/AmazingFeature`)
+5. 提交 Pull Request
+
+## 📞 技术支持
+
+如有问题或建议，请联系：
+- 📧 Email: yizhao1027@163.com
+
+## 📄 许可证
+
+本项目基于 [MIT 许可证](LICENSE) 开源。
+
+---
