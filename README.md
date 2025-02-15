@@ -1,99 +1,126 @@
-<h1>Staff Management System</h1>
-<h2>A comprehensive staff management system based on React, featuring attendance tracking, department management, and analytics dashboard.</h2>
-
 <div align="center">
-  <img src="src/assets/img/dashboard.jpg" width="500" alt="Main Dashboard">
+
+# 🏢 Employee Management System
+
+#### A Modern Employee Management System Based on React, Providing Comprehensive Human Resource Management Solutions
+
+#### *"React + UmiJS + JavaScript + ECharts"*
+
+🌐 [English](./README.md) · [简体中文](./README_zh-CN.md) · [Backend Repository](https://github.com/AriaZhao-coder/AdminSystemServer.git)
+
+
+![Dashboard](src/assets/img/dashboard.jpg)
+
+
 </div>
 
-<h3>✨ Features</h3>
+## 📝 Overview
 
-<h4>1. User Authentication</h4>
-<div>
-Account password login and SMS verification code login<br/>
-Password recovery functionality<br/>
-User registration system
-</div>
+`Employee Management System` is a **feature-rich** and **user-friendly** management system designed for modern enterprise human resource management needs. Built on React and UmiJS, it provides an intuitive user interface and powerful data analysis capabilities, helping enterprises better manage employee information, track attendance records, and gain deep insights into organizational structure through data visualization.
 
+## 🌟 Core Features
+
+- **👤 Smart User Authentication**: Diverse login methods and secure user authentication
+- **📊 Data Analysis Dashboard**: Intuitive data visualization and real-time statistics
+- **👥 Employee Information Management**: Comprehensive employee records and performance tracking
+- **🏢 Department Management System**: Flexible organizational structure management
+- **⏰ Attendance Tracking System**: Precise attendance records and statistical analysis
+- **💰 Comprehensive Salary Management**: Complete payroll calculation and rewards/penalties recording
+
+## 🛠️ Technology Stack
+
+- **📚 Framework**: React 18 + UmiJS Max V4
+- **🔧 Language**: JavaScript
+- **📊 Visualization**: ECharts
+- **🌐 Network**: Axios
+- **⏱️ Utility Library**: Day.js
+- **🎨 UI Components**: Ant Design
+
+## 🔐 Access Control
+
+**Administrator Permissions (👑 Admin)**
+
+✅ View all employee information<br>
+✅ Add employee records<br>
+✅ Edit employee basic information<br>
+✅ Delete employee records<br>
+❌ Modify employee avatars
+
+**Regular User Permissions (👤 User)**
+
+✅ View personal information<br>
+✅ Modify personal avatar<br>
+❌ View others' information<br>
+❌ Add/Edit/Delete employee information<br>
+
+## Feature Details
+
+### 1. 🔐 User Authentication Module
+
+- **Multiple Login Methods**
+    - Username and password login
+    - SMS verification code login
+- **Security Management**
+    - Password reset
 <div align="center">
-<img src="src/assets/img/login.jpg" width="500" alt="Login Interface">
+<img src="src/assets/img/login.png" width="500" alt="Login Interface">
 </div>
 
-<h4>2. Data Analysis Dashboard</h4>
-<div>
-Employee demographics visualization<br/>
-Age distribution charts<br/>
-Department staff distribution<br/>
-Senior staff tracking
+### 2. 📈 Data Analysis Dashboard
+
+- **Personnel Distribution**
+    - Department headcount statistics
+    - Age structure analysis
+    - Gender and zodiac distribution
+    - Education distribution chart
+<div align="center">
+<img src="src/assets/img/analysisDashboard.png" width="500" alt="Data analysis dashboard">
 </div>
 
-<h4>3. Department Management</h4>
-<div>
-Hierarchical department structure<br/>
-Department tree visualization<br/>
-Department CRUD operations
+- **Attendance Analysis**
+    - Abnormal attendance tracking
+<div align="center">
+<img src="src/assets/img/attendance.png" width="500" alt="attendance">
 </div>
 
-<h4>4. Staff Management</h4>
-<div>
-Comprehensive staff information management<br/>
-Staff filtering and search<br/>
-Avatar upload functionality<br/>
-Staff performance assessment
-</div>
+### 3. 🏢 Department Management Features
 
-<h4>5. Attendance System</h4>
-<div>
-Attendance tracking and recording<br/>
-Violation monitoring and reporting<br/>
-Attendance statistics visualization
-</div>
-
-<h4>👋🏻 Additional Features</h4>
-<div>
-Salary management<br/>
-Reward and punishment records<br/>
-Position level management
+- **Organizational Structure**
+    - Multi-level department management
+    - Tree structure display
+    - Department personnel configuration
+<div align="center">
+<img src="src/assets/img/department.png" width="500" alt="department">
 </div>
 
 
-<h3>Project Structure</h3>
-```text
-src/
-├── api/                # API interface modules
-├── assets/             # Static resources
-├── components/         # Reusable components
-├── layouts/            # Layout components
-├── models/             # Data models
-├── pages/              # Page components
-│   ├── dashboard/      # Analytics dashboard
-│   ├── department/     # Department management
-│   ├── staff/          # Staff management
-│   └── users/          # User authentication
-└── utils/              # Utility functions
-```
+### 4. 👥 Employee Profile Management
 
+- **Information Management**
+    - Basic information maintenance
+    - Employee avatar modification
+    - New employee information
+<div align="center">
+<img src="src/assets/img/staff.png" width="500" alt="staff">
+</div>
 
-<h3>🤖 Tech Stack</h3>
-Based on @umijs/max V4<br/>
-React 18<br/>
-TypeScript 5.0+<br/>
-ECharts Visualization<br/>
-Axios HTTP Client<br/>
-Day.js Time Processing<br/>
+## 🚀 Quick Start
 
+### Requirements
 
-<h3>Quick Start</h3>
-1. Environment Setup
-Node.js (18.0.0 or above)<br/>
-npm or yarn<br/>
-VSCode Editor recommended
-2. Installation and Launch
-Clone the project
+- Node.js 18.0.0+
+- npm or yarn
+- VSCode (recommended)
+
+### Installation Steps
+
+1. **Clone the Project**
 ```bash
-git clone [repository-url]
-cd [project-folder]
+git clone https://github.com/AriaZhao-coder/EmployeeManagementSystem.git
+cd employee-management-system
 ```
-Install dependencies
+
+2. **Install Dependencies**
 ```bash
 # Using npm
 npm install
@@ -101,62 +128,101 @@ npm install
 # Or using yarn
 yarn install
 ```
-Start the project
+
+3. **Start the Project**
 ```bash
-# Development environment (all commands below are equivalent)
+# Development environment
 npm start
-# or
-npm run dev
-# or
+# Or
 yarn dev
 ```
-Build the project
+
+4. **Build the Project**
 ```bash
-# Production build
+# Production environment
 npm run build
-# or
+# Or
 yarn build
 ```
 
+## 📁 Project Structure
 
-<h3>Development Guide</h3>
 ```bash
-This project uses UmiJS Max scaffold, max setup runs automatically after initial installation
-Development server runs on http://localhost:8000 by default
-TypeScript is used throughout the project, ensure code complies with type definitions
-Visualization implemented with ECharts, supporting various data charts
-Organization structure uses react-org-tree component
+src/
+├── api/                 # API interface definitions
+│   ├── admin.ts        # Admin interfaces
+│   ├── attendance.ts   # Attendance interfaces
+│   └── employee.ts     # Employee interfaces
+├── assets/             # Static resources
+├── components/         # Common components
+├── layouts/            # Layout components
+├── models/             # Data models
+├── pages/              # Page components
+└── utils/              # Utility functions
 ```
 
+## ⚙️ Configuration Guide
 
-<h3>Important Notes</h3>
-```bash
-Ensure Node.js version meets requirements
-If dependency installation fails, try deleting node_modules and reinstalling
-Maintain proper TypeScript type definitions during development
-Complete necessary code checks before committing
+### 1. **Development Environment Configuration**
+
+```yaml
+server:
+  port: 8000
+  host: localhost
+
+api:
+  baseURL: /api
+  timeout: 5000
+
+upload:
+  maxSize: 5242880  # 5MB
+  allowTypes: ['image/jpeg', 'image/png']
 ```
 
-
-<h3>Configuration</h3>
-Project uses TypeScript configuration, see tsconfig.json. Custom type definitions are in typings.d.ts.
+### 2. **Build Configuration**
 
 
-<h3>API Documentation</h3>
-API modules are located in src/api directory:
-```bash
-adminApi.js - Administrative operations
-attendanceApi.js - Attendance management
-departmentApi.js - Department operations
-staffApi.js - Staff management
-userApi.js - User authentication and management
+```javascript
+export default {
+  antd: {},
+  access: {},
+  model: {},
+  initialState: {},
+  request: {},
+  layout: {
+    title: 'Employee Management System',
+  },
+}
 ```
 
+## 🎯 Best Practices
 
-<h3>Contributing</h3>
-Fork the repository</br>
-Create your feature branch (git checkout -b feature/AmazingFeature)</br>
-Commit your changes (git commit -m 'Add some AmazingFeature')</br>
-Push to the branch (git push origin feature/AmazingFeature)</br>
-Submit a Pull Request</br>
+1. **Code Standards**
+- Follow JavaScript conventions
+- Use ESLint for code checking
+- Maintain pure function component design
 
+2. **Performance Optimization**
+- Implement component lazy loading
+- Use React.memo for render optimization
+- Properly utilize useMemo and useCallback
+
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add: new feature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📞 Technical Support
+
+For questions or suggestions, please contact:
+- 📧 [Aria Zhao](mailto:yizhao1027@163.com)
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
